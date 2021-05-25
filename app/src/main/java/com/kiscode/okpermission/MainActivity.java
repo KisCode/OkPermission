@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             /*
             1. 应用按照后第一次访问、直接返回false
             2. 第一次请求权限时用户拒绝、下一次返回true
-            3. 第二次请求权限时用户拒绝，并选择了“不在提醒”，返回false
+            3. 第二次请求权限时用户拒绝，并选择了“不再提醒”，返回false
             4. 设备系统设置中禁止当前应用获取该权限的授权，返回false
             */
             Log.i(TAG, "shouldShowRequestPermissionRationale");
