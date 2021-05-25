@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">OkPermission</string>
+    <string name="request_single_permission">Request Single Permission</string>
+    <string name="request_multiple_permission">Request Multiple Permission</string>
+</resources>
