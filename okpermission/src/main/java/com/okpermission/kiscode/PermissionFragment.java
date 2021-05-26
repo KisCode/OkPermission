@@ -56,8 +56,8 @@ public class PermissionFragment extends Fragment {
                 }
             }
             onPermissionRequestCallBack.onRequestPermissionsResult(grantList.size() == permissions.length
-                    , grantList.toArray(new String[grantList.size()])
-                    , denyList.toArray(new String[denyList.size()]));
+                    , grantList.toArray(new String[0])
+                    , denyList.toArray(new String[0]));
         }
     }
 }

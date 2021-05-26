@@ -1,11 +1,9 @@
 package com.kiscode.okpermission;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
 import android.Manifest;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -60,7 +58,6 @@ public class OkPermissionActivity extends AppCompatActivity implements View.OnCl
                                 }
                             }
                         });
-
                 break;
             case R.id.btn_call_phone:
                 OkPermission.with(this)
@@ -69,6 +66,12 @@ public class OkPermissionActivity extends AppCompatActivity implements View.OnCl
                             if (allGranted) {
                                 callPhone(PHONE_NUMBER);
                             } else {
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                    for (String denyPermission : denyPermissions) {
+                                        boolean b = shouldShowRequestPermissionRationale(denyPermission);
+                                        Log.i(TAG, denyPermission + "\t Rationale:" + b);
+                                    }
+                                }
                                 Toast.makeText(OkPermissionActivity.this, "Deny permission " + Arrays.toString(denyPermissions), Toast.LENGTH_SHORT).show();
                             }
                         });
