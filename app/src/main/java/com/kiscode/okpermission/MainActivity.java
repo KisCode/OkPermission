@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG = "MainActivity";
     private static final int REQUEST_CODE_PERMISSION = 358;
     private static final int REQUEST_CODE_MULTIPLE_PERMISSION = 1358;
-    private TextView tvResult;
     private Button btnRequestSinglePermission;
     private Button btnRequestMultiplePermission;
 
@@ -47,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
-        tvResult = findViewById(R.id.tv_result);
         btnRequestSinglePermission = findViewById(R.id.btn_request_single_permission);
         btnRequestMultiplePermission = findViewById(R.id.btn_request_multiple_permission);
 

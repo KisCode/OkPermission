@@ -16,7 +16,7 @@ import java.util.List;
 public class PermissionFragment extends Fragment {
 
     public static final int REQUEST_CODE_PERMISSION = 10086;
-    private PermissionBuilder.OnPermissionRequestCallBack onPermissionRequestCallBack;
+    private OkPermission.PermissionBuilder.OnPermissionRequestCallBack onPermissionRequestCallBack;
 
     public static PermissionFragment getPermissionFragment() {
         return new PermissionFragment();
@@ -24,7 +24,7 @@ public class PermissionFragment extends Fragment {
 
 
     public void request(@NonNull String[] permissions,
-                        PermissionBuilder.OnPermissionRequestCallBack onPermissionRequestCallBack) {
+                        OkPermission.PermissionBuilder.OnPermissionRequestCallBack onPermissionRequestCallBack) {
         this.onPermissionRequestCallBack = onPermissionRequestCallBack;
 
         if (hasPermission(permissions)) {

@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -15,10 +17,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.okpermission.kiscode.OkPermission;
-import com.okpermission.kiscode.PermissionBuilder;
 
 import java.util.Arrays;
 
+/**
+* Description: OkPermission使用示例
+* Author: keno
+**/
 public class OkPermissionActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "OkPermission";
@@ -48,7 +53,7 @@ public class OkPermissionActivity extends AppCompatActivity implements View.OnCl
             case R.id.btn_take_photo:
                 OkPermission.with(this)
                         .permission(new String[]{Manifest.permission.CAMERA})
-                        .request(new PermissionBuilder.OnPermissionRequestCallBack() {
+                        .request(new OkPermission.PermissionBuilder.OnPermissionRequestCallBack() {
                             @Override
                             public void onRequestPermissionsResult(boolean allGranted, @NonNull String[] grantPermissions, @NonNull String[] denyPermissions) {
                                 if (allGranted) {
@@ -80,7 +85,7 @@ public class OkPermissionActivity extends AppCompatActivity implements View.OnCl
                 //申请多个权限
                 OkPermission.with(this)
                         .permission(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.CALL_PHONE, Manifest.permission.CAMERA})
-                        .request(new PermissionBuilder.OnPermissionRequestCallBack() {
+                        .request(new OkPermission.PermissionBuilder.OnPermissionRequestCallBack() {
                             @Override
                             public void onRequestPermissionsResult(boolean allGranted, @NonNull String[] grantPermissions, @NonNull String[] denyPermissions) {
                                 Log.i(TAG, "allGranted:" + allGranted
